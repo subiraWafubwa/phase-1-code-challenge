@@ -59,7 +59,7 @@ function getNetIncome(grossIncome){
         if(grossIncome <= 7000){
             nssf = .06 * 7000
         } else {
-            nssf = .6 * 36000
+            nssf = .06 * 36000
         }
     }
 
@@ -82,3 +82,4 @@ function getNetIncome(grossIncome){
 }
 
 getNetIncome(543230)
+getNetIncome(45000)
