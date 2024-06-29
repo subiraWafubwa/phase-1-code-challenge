@@ -3,6 +3,7 @@ function getNetIncome(grossIncome){
     if (typeof grossIncome !== 'number') {
         console.log('Invalid input');
     } else {
+        
         // Calculating the PAYE per month
         var kra = undefined
         if(grossIncome <= 24000){
@@ -55,6 +56,7 @@ function getNetIncome(grossIncome){
             nhif = 1700
         }
 
+        // Calculating NSSF deductions
         var nssf = undefined;
         if(grossIncome <= 7000){
             nssf = .06 * 7000
@@ -66,6 +68,7 @@ function getNetIncome(grossIncome){
         let paye = kra + nhif + nssf;
         let netIncome = grossIncome - paye
 
+        // This is the object containing the response
         let response = {
             'Gross Income': `KSH. ${grossIncome.toFixed(2)}`,
             'KRA': `KSH. ${kra.toFixed(2)}`,
@@ -78,5 +81,3 @@ function getNetIncome(grossIncome){
         console.table(response);
     }
 }
-
-getNetIncome('Me')
