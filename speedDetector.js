@@ -26,6 +26,7 @@ if (typeof window !== 'undefined') {
     }
 }
 
+// Calculate demerit points
 function getDemeritPoints(speed){
     if(speed <= 70){
         console.log('Ok')
