@@ -1,3 +1,32 @@
+// Running in Node.js environment
+if (typeof window === 'undefined') {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    rl.question('Please enter your score: ', (score) => {
+        if (isNaN(score)) {
+            console.log('Invalid score');
+            rl.close();
+        } else {
+            getGrade(score)
+        }
+    });
+}
+
+// Running on a web environment
+if (typeof window !== 'undefined') {
+    const score = prompt('Please enter your score: ');
+    if (isNaN(score)) {
+        alert('Invalid gross income value!');
+    } else {
+      getGrade(score)
+    }
+}
+
+// Function to get the grade
 function getGrade(score){
     let grade = ''
 
@@ -14,10 +43,9 @@ function getGrade(score){
             grade = 'E'
         }
     } else {
-        return `Invalid score`
+        console.log(`Invalid score`) 
     }
 
-    return `Your Grade is ${grade}`
+    console.log(`Your Grade is ${grade}`)
 }
 
-console.log(getGrade(78))
